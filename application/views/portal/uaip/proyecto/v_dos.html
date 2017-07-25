@@ -1,0 +1,85 @@
+<link href="../../../../asset_/css/font-awesome.css" rel="stylesheet">
+<div class="container">
+<?php
+foreach ($leyes as $entrada) {
+    ?>
+    <div class="row">
+        <div class="col-md-0">
+        </div>
+        <div class="col-md-3">            
+            <div class="panel panel-default demo">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img class="img-responsive" width='50px' src="../../../../assets/images/avatars/<?php echo $entrada->imagen; ?>" alt="">
+                        </div>
+                        <div class="col-md-9">
+                            <b><?php echo $entrada->titulo; ?></b>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                             <?php if($entrada->documento !=""){
+                                ?>
+                                <div class="col-md-4">
+                                <span id="pdf" class="fa fa-file-pdf-o"></span>
+                                </div>
+                                <?php
+                            } ?>
+                             <?php if($entrada->video !=""){
+                                ?>
+                                <div class="col-md-4">                                
+                                <span id="pdf" class="fa fa-file-video-o"></span>
+                                </div>
+                                <?php
+                            } ?>
+                            <?php if($entrada->referencia !=""){
+                                ?>
+                                <div class="col-md-4">
+                                <span id="pdf" class="fa fa-link"></span>
+                                </div>
+                                <?php
+                            } ?>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h4><?php echo $entrada->subtitulo; ?></h4>
+            <p class='descripcion'><?php echo $entrada->contenido; ?></p>            
+            <span><b>Creado </b>
+                <?php
+                    echo $entrada->creado;
+                ?>      
+            </span><br>
+            
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <hr>
+    <?php
+}
+?>
+</div>
+
+<style>
+.descripcion{
+    text-align: justify;
+}
+.demo{
+    background-color: grey;
+    color: white;
+}
+.subtitle{
+    color: white;
+}
+#pdf{
+     color: #fff;
+    text-shadow: 1px 1px 1px grey;
+    font-size: 1.5em;
+}
+</style>
